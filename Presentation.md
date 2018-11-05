@@ -9,10 +9,8 @@ To introduce the background, we start with the typical procedure of Cryo-EM imag
   <img src="https://github.com/Locher0107/Cryo-EM-Introduction/blob/master/cryo_Em_procedure.jpg" width="300" height="300">
 </p>
 
-
-
-
 <p align="center">
-  <b>Some Links:</b><br>
+  <b>Fig.2:</b><br>
   <img src="https://github.com/Locher0107/Cryo-EM-Introduction/blob/master/electrons.jpg" width="300" height="300">
 <p>
+
