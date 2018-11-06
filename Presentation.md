@@ -41,9 +41,16 @@ Essentially, the structure of macro-molecule is represented as electric potentia
 <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;CTF(\vec{s})&=-\omega_1sin(\gamma(\vec{s}))-\omega_2cos(\gamma(\vec{s}))\\" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\inline&space;CTF(\vec{s})&=-\omega_1sin(\gamma(\vec{s}))-\omega_2cos(\gamma(\vec{s}))\\" title="CTF(\vec{s})&=-\omega_1sin(\gamma(\vec{s}))-\omega_2cos(\gamma(\vec{s}))\\" /></a><br>
 <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\gamma(\vec{s})=\gamma(s,\theta)=-\frac{\pi}{2}C_s\lambda^3s^4&plus;\pi\lambda.z(\theta)s^2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\inline&space;\gamma(\vec{s})=\gamma(s,\theta)=-\frac{\pi}{2}C_s\lambda^3s^4&plus;\pi\lambda.z(\theta)s^2" title="\gamma(\vec{s})=\gamma(s,\theta)=-\frac{\pi}{2}C_s\lambda^3s^4+\pi\lambda.z(\theta)s^2" /></a><br>
 <br>
-Accordding to the provided parameters from electron microscope, we can compute the CTFs. Fig.6 is the example of a CTF image in Fourier domain.
+Accordding to the provided parameters from electron microscope, we can compute the CTFs. Fig.6 is the example of a CTF image in Fourier domain. With the above knowledge, we can move to the forward-projection, which is 3D reconstruction, based on projection-slice theorem. Theoretically, the 2D Fourier transform of projection image is equal to
+one central slice of 3D Fourier transform of the rotated object and this 2D projection should in a direction perpendicular to the central slice. In other words, this theorem states that if we take the 3D Fourier transform of object A as FA, at the same time we have its one projection B from a specific direction D. Then we take the 2D Fourier transform of B as FB, which FB would be equal to a central slice in FA. This central slice position is fixed and it is perpendicular to direction D. Fig.7 (credit to Lanhui Wang, et al) shows details of how projection-slice theorem works when taking macro-molecule 50s ribosomal as an example. If we have enough central slices estimated and calculated from the experiment images, we could reconstruct 3D Fourier structure. After converting by 3D inverse Fourier transform, we obtain the estimated 3D structure of macro-molecules. As matter of a fact, this is what most Cryo-EM algorithms are based on.
  <p align="center">
   <b>Fig.6</b><br>
   <img src="https://github.com/Locher0107/Cryo-EM-Introduction/blob/master/ctf_plot_3.jpg" width="400" height="300">
 <p>
+  
+   <p align="center">
+  <b>Fig.7</b><br>
+  <img src="https://github.com/Locher0107/Cryo-EM-Introduction/blob/master/fourier_slice_theorem.jpg" width="600" height="354">
+<p>
+  
  
