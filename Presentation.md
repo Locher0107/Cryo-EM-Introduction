@@ -24,18 +24,26 @@ Essentially, the structure of macro-molecule is represented as electric potentia
  
  In the Cryo-EM experiment, if we put the frozen GroEL protein from Fig.3 in the elctron macroscope from Fig.2, the electrons would pass through the specimens and then we would have a projection image called micrograph. In the experiment, we would do hundreds of times to obtain enough micrographs for 3D reconstruction (Fig.4). As we can see, this micrograph is pretty noisy. In such a micrograph, it includes hundreds of particles. Recall that in a specimen, we have many macro-molecules of the same kind but in different orientations. They are all projected into 2D images in this large micrograph. The red square in Fig.4 picked one particle in a unknow orientation. When moving to the next stage of 3D reconstruction, we need to pick hundreds of particles from each micrograph. This procedure is called particle picking, which is usually done automatically by algorithm or manually by expert. During the process, some deficient particles would be taken out. Finally we have N particles or N 2D projections in spatial domain like the examples in rows in Fig.5.
  
- Mathematically, those N particles can represented as <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\int^\infty_\infty{\phi(R^{-1}.(x_1,x_2,x_3))dx_3}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\inline&space;\int^\infty_\infty{\phi(R^{-1}.(x_1,x_2,x_3))dx_3}" title="\int^\infty_\infty{\phi(R^{-1}.(x_1,x_2,x_3))dx_3}" /></a>, where <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;R" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\inline&space;R" title="R" /></a> is the rotation matrix in 
+ Mathematically, those N particles can represented as <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\int^\infty_\infty{\phi(R^{-1}.(x_1,x_2,x_3))dx_3}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\inline&space;\int^\infty_\infty{\phi(R^{-1}.(x_1,x_2,x_3))dx_3}" title="\int^\infty_\infty{\phi(R^{-1}.(x_1,x_2,x_3))dx_3}" /></a>, where <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;R" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\inline&space;R" title="R" /></a> is the rotation matrix in <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\mathbb{R}^3" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\inline&space;\mathbb{R}^3" title="\mathbb{R}^3" /></a>. That is because during the projection through electrons, the image producing procedure is essentially doing the integration of the electric potential function, or 3D density function, going in the electrons passing direction. Furthermore, those particles are also widely called experiment image <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;X_i" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\inline&space;X_i" title="X_i" /></a>.
+ 
  
  <p align="center">
   <b>Fig.4</b><br>
   <img src="https://github.com/Locher0107/Cryo-EM-Introduction/blob/master/2Dmicrograph_1.jpg" width="400" height="300">
 <p>
   <p align="center">
-  <b>Fig.4</b><br>
+  <b>Fig.5</b><br>
   <img src="https://github.com/Locher0107/Cryo-EM-Introduction/blob/master/2dparticles.jpg" width="400" height="200">
 <p>
   
-  
-  
-  
+ However, the Cryo-EM images are not truely projections of the macro-molecules with noise because they are affected by the CTFs (contrast transfer functions). Theoretically, CTFs are defined as a function in the Fourier domain depending on the magnitude of frequency, phase and defocus value.<br>
+ <br>
+<a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;CTF(\vec{s})&=-\omega_1sin(\gamma(\vec{s}))-\omega_2cos(\gamma(\vec{s}))\\" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\inline&space;CTF(\vec{s})&=-\omega_1sin(\gamma(\vec{s}))-\omega_2cos(\gamma(\vec{s}))\\" title="CTF(\vec{s})&=-\omega_1sin(\gamma(\vec{s}))-\omega_2cos(\gamma(\vec{s}))\\" /></a><br>
+<a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\gamma(\vec{s})=\gamma(s,\theta)=-\frac{\pi}{2}C_s\lambda^3s^4&plus;\pi\lambda.z(\theta)s^2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\inline&space;\gamma(\vec{s})=\gamma(s,\theta)=-\frac{\pi}{2}C_s\lambda^3s^4&plus;\pi\lambda.z(\theta)s^2" title="\gamma(\vec{s})=\gamma(s,\theta)=-\frac{\pi}{2}C_s\lambda^3s^4+\pi\lambda.z(\theta)s^2" /></a><br>
+<br>
+Accordding to the provided parameters from electron microscope, we can compute the CTFs. Fig.6 is the example of a CTF image in Fourier domain.
+ <p align="center">
+  <b>Fig.6</b><br>
+  <img src="https://github.com/Locher0107/Cryo-EM-Introduction/blob/master/ctf_plot_3.jpg" width="400" height="300">
+<p>
  
